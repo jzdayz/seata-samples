@@ -1,0 +1,1 @@
+GET http://localhost:8082/api/order/debit?userId=1002&commodityCode=1111&count=1

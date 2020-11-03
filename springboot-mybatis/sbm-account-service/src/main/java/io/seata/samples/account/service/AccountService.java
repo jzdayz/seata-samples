@@ -2,6 +2,7 @@ package io.seata.samples.account.service;
 
 import io.seata.samples.account.persistence.Account;
 import io.seata.samples.account.persistence.AccountMapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class AccountService {
     @Autowired
     private AccountMapper accountMapper;
 
+    @GlobalTransactional
     public void debit(String userId, BigDecimal num) {
         Account account = accountMapper.selectByUserId(userId);
         account.setMoney(account.getMoney().subtract(num));

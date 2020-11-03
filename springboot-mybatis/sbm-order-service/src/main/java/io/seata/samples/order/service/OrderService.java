@@ -3,6 +3,7 @@ package io.seata.samples.order.service;
 import io.seata.samples.order.client.AccountClient;
 import io.seata.samples.order.persistence.Order;
 import io.seata.samples.order.persistence.OrderMapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
+//    @GlobalTransactional
     public void create(String userId, String commodityCode, Integer count) {
         BigDecimal orderMoney = new BigDecimal(count).multiply(new BigDecimal(5));
         Order order = new Order();
